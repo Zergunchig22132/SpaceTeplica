@@ -23,35 +23,49 @@ electricity_power = 0
 electricity = 0
 growth_coeficent = 0
 electricity_kpd = 0
+need_energy = 0
 
-def count_energy(need_tempreture):
-    return sum(list(range(need_tempreture + 1))) 
+
+def count_energy(*args):
+    global need_energy
+    need_energy = sum(list(range(temperature + 1)))
+
 
 def update_mass(*args):
     global ship_mass, sh_population
     ship_mass = 192 + sh_population
 
+    
 def update_engine(*args):
     global engine_power, engine_kpd, reactor_power
     global electricity_power
     engine_power = engine_kpd * reactor_power
     electricity_power = (1 - engine_kpd) * reactor_power
 
+    
 def update_electricity(*args):
     global electricity_power, electricity
     electricity = electricity_power * power_per_fuel
 
+    
 def update_velocity(*args):
     global max_velocity, reactor_power, ship_mass, velocity
     update_mass()
     update_engine()
     velocity = max_velocity * (engine_power / 80) * (200 / ship_mass)
 
+    
 def update_growth_coefficent(*args):
     global growth_coeficent, temperature
     global oxygen
     growth_coeficent = math.sin((math.pi * (-1)) / 2 +
                                 (math.pi * (temperature + 0.5 * oxygen) / 40))
+    
+    
+def update_sh(*args):
+    global sh_population, growth_coeficent
+    sh_population = sh_population + sh_population * growth_coeficent
+    
     
 def autoclave_maintenance(*args):
     global sh_population, min_SH_population
