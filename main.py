@@ -73,3 +73,17 @@ def autoclave_maintenance(*args):
     global sh_population, min_SH_population
     sh_population = min_SH_population
     
+def globalization(*args):
+    def start_flight(distance, cargo, *args):
+    global max_velocity, fuel, max_velocity, max_engine_kpd
+    global power_per_fuel, temperature, oxygen, reactor_power
+    global min_temperature, max_temperature, max_oxygen_consuption
+    global ship_mass, ship_start_mass, velocity, engine_power
+    global electricity_power, electricity, growth_coeficent
+    global electricity_kpd, need_energy, flighting_plan, day
+    fuel = 0
+    temperature = 0
+    oxygen = 0
+    reactor_power = 0
+    ship_mass = 192 + 8
+    pass
