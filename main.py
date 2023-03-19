@@ -30,7 +30,13 @@ def update_mass(*args):
 
 def update_engine(*args):
     global engine_power, engine_kpd, reactor_power
+    global electricity_power
     engine_power = engine_kpd * reactor_power
+    electricity_power = (1 - engine_kpd) * reactor_power
+
+def update_electricity(*args):
+    global electricity_power, electricity
+    electricity = electricity_power * power_per_fuel
 
 def update_velocity(*args):
     global max_velocity, reactor_power, ship_mass, velocity
