@@ -16,3 +16,5 @@ max_oxygen_consuption = 60
 min_SH_population = 8
 ship_start_mass = 192
 token = 'jh2gskwd'
+
+def update_velocity = 
