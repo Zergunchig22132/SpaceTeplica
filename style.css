@@ -1,0 +1,66 @@
+body {
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	background-color: #E8FFE8;
+	font-size: 15px;
+	color: #333;
+	line-height: 1.6;
+}
+
+/*
+::-webkit-scrollbar {
+	width: 0;
+} */
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+table {
+	width: 100%;
+	height: 50vh;
+}
+
+#power_chart {
+    margin: 0;
+    border: #67D8FE;
+}
+
+th {
+   border: 1px solid #67D8FE;
+}
+
+/* границы ячеек тела таблицы */
+td {
+   border: 1px solid #67D8FE;
+}
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.table{
+	display: table;
+	width: 100%;
+	margin-top: 2%;
+}
+
+table {
+	padding-left: 2%;
+	padding-right: 2%;
+	width: 50vw;
+}
+
+.example-row {
+    display: table-row;   
+	height: 50vh;
+}
+
+.example {
+    display: table-cell; 
+	width: 100vw;
+	height: 50vh;
+}

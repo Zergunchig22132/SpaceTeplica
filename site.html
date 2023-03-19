@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+<script>
+    $(document).ready(function(){
+        get_data();
+        google.charts.load("current", {packages:['corechart']});
+        google.charts.setOnLoadCallback(load_power_chart);
+        // load_dyn_table();
+    })
+
+</script>
+<div id="power_chart" style="width: 50vw; height: 50vh;">Привет</div>
+<div id="dyn_table"></div>
+<div class="example" id="table">
+        
+</div>
+<div id="days"></div>
+
+{% endblock %}

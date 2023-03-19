@@ -1,6 +1,8 @@
 import math
 import requests
 import time
+from flask import Flask, request, render_template
+import json
 
 max_velocity = 2  # lightyear/day
 fuel = 0
@@ -34,6 +36,8 @@ history = {}
 resources = {}
 authoclav = []
 consumed = 20
+app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\dfsdf2'
 
 
 def count_energy(*args):
@@ -104,9 +108,9 @@ def calculate(*args):
     consumed = 20 * sh_population
     current_distance += velocity
     history[day] = [mission, current_distance, sh_population,
-                    fuel, oxygen, velocity]
+                    fuel, oxygen, velocity, temperature]
     resources[day] = [sh_population, fuel, oxygen]
-    while mission <= len(fly_plan):
+    for i in range(5):
         if sh_population < fly_plan[mission][1] + 8:
             temperature = 30
             engine_kpd = 1 - 0.43
@@ -123,7 +127,7 @@ def calculate(*args):
         current_distance += velocity
         fuel += 100
         history[day] = [mission, current_distance, sh_population,
-                        fuel, oxygen, velocity]
+                        fuel, oxygen, velocity, temperature]
         resources[day] = [sh_population, fuel, oxygen]
         if current_distance > distance:
             mission += 1
@@ -140,3 +144,16 @@ def calculate(*args):
         authoclav = [temperature, consumed]
 
 calculate()
+
+@app.route('/')
+def load():
+    return render_template('site.html', the_title="Корабль") 
+
+
+@app.route('/ajax/power_chart')
+def data_at():
+    res = {"electricity_kpd":electricity_kpd,"engine_kpd":engine_kpd,"resources":resources, "history":history, "days":day}
+    return json.dumps(res)
+
+if __name__ == '__main__':
+    app.run(debug=True,host="0.0.0.0")
