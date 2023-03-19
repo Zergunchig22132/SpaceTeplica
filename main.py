@@ -8,7 +8,6 @@ engine_kpd = 0
 power_per_fuel = 11
 temperature = 0
 oxygen = 0
-sin = 0
 reactor_power = 0
 min_temperature = 0
 max_temperature = 30
@@ -48,6 +47,11 @@ def update_velocity(*args):
     update_engine()
     velocity = max_velocity * (engine_power / 80) * (200 / ship_mass)
 
+def update_growth_coefficent(*args):
+    global growth_coeficent, temperature
+    global oxygen
+    growth_coeficent = math.sin((math.pi * (-1)) / 2 +
+                                (math.pi * (temperature + 0.5 * oxygen) / 40))
     
 def autoclave_maintenance(*args):
     global sh_population, min_SH_population
