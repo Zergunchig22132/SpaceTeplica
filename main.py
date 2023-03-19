@@ -24,6 +24,7 @@ electricity = 0
 growth_coeficent = 0
 electricity_kpd = 0
 need_energy = 0
+flighting_plan = requests.get("https://dt.miet.ru/ppo_it_final", params=token)
 
 
 def count_energy(*args):
