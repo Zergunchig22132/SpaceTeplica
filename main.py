@@ -41,8 +41,9 @@ def update_mass(*args):
 def update_engine(*args):
     global engine_power, engine_kpd, reactor_power
     global electricity_power
-    engine_power = engine_kpd * reactor_power
-    electricity_power = (1 - engine_kpd) * reactor_power
+    engine_power = engine_kpd * 100
+    electricity_kpd = 1 - engine_kpd
+    electricity_power = electricity_kpd * power_per_fuel * 100
 
     
 def update_electricity(*args):
