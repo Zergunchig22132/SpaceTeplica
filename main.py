@@ -16,5 +16,7 @@ max_oxygen_consuption = 60
 min_SH_population = 8
 ship_start_mass = 192
 token = 'jh2gskwd'
+growth_factor = 0
 
-def update_velocity = 
+def count_energy(need_tempreture):
+    return sum(list(range(need_tempreture + 1))) 
