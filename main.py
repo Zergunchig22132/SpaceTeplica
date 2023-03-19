@@ -22,6 +22,7 @@ velocity = 0
 engine_power = 0
 electricity_power = 0
 electricity = 0
+growth_coeficent = 0
 
 def count_energy(need_tempreture):
     return sum(list(range(need_tempreture + 1))) 
