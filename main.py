@@ -45,4 +45,9 @@ def update_velocity(*args):
     update_mass()
     update_engine()
     velocity = max_velocity * (engine_power / 80) * (200 / ship_mass)
+
+    
+def autoclave_maintenance(*args):
+    global sh_population, min_SH_population
+    sh_population = min_SH_population
     
